@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiTienda — Compra fácil por WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">🛍 MiTienda</div>
+      <div class="header-right">
+        <div class="search-wrap">
+          <input type="text" id="buscador" placeholder="Buscar productos...">
+        </div>
+        <button class="carrito-btn" id="carrito-btn">
+          🛒 <span id="carrito-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">Envío gratis en pedidos mayores a $500</p>
+      <h1>Encuentra todo lo que necesitas</h1>
+      <p class="hero-sub">Agrega productos al carrito y haz tu pedido directo por WhatsApp. Fácil y rápido.</p>
+    </div>
+  </section>
+
+  <section class="filtros-section">
+    <div class="filtros" id="filtros"></div>
+  </section>
+
+  <main class="productos-grid" id="productos-grid"></main>
+
+  <div class="carrito-panel" id="carrito-panel">
+    <div class="carrito-header">
+      <h3>Tu carrito</h3>
+      <button id="cerrar-carrito">✕</button>
+    </div>
+    <div class="carrito-items" id="carrito-items"></div>
+    <div class="carrito-footer">
+      <div class="carrito-total">
+        Total: <strong id="carrito-total">$0</strong>
+      </div>
+      <button class="btn-whatsapp" id="btn-whatsapp">
+        Pedir por WhatsApp 💬
+      </button>
+      <button class="btn-vaciar" id="btn-vaciar">Vaciar carrito</button>
+    </div>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <footer>
+    <p>© 2026 MiTienda · Pedidos por WhatsApp · CDMX</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
