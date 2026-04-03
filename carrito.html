@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito — ShopMX</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Shop<span>MX</span></a>
+        <h2 style="font-size:18px;font-weight:600;">Tu carrito de compras</h2>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">🌙</button>
+          <a href="carrito.html" class="carrito-link">🛒 <span class="badge" id="badge-count">0</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-inner carrito-layout">
+    <div class="carrito-items-col" id="carrito-items-col"></div>
+    <div class="carrito-resumen">
+      <h3>Resumen del pedido</h3>
+      <div class="resumen-row"><span>Subtotal</span><span id="r-subtotal">$0</span></div>
+      <div class="resumen-row"><span>Envío</span><span id="r-envio">$0</span></div>
+      <div class="resumen-row descuento-row" id="r-descuento-row" style="display:none"><span>Descuento cupón</span><span id="r-descuento" style="color:var(--verde-precio)"></span></div>
+      <div class="resumen-divider"></div>
+      <div class="resumen-row total-row"><span>Total</span><strong id="r-total">$0</strong></div>
+      <div class="cupon-box">
+        <input type="text" id="cupon-input" placeholder="Código de cupón">
+        <button id="cupon-btn">Aplicar</button>
+      </div>
+      <div class="cupon-msg" id="cupon-msg"></div>
+      <a href="checkout.html" class="btn-checkout" id="btn-checkout">Proceder al pago →</a>
+      <a href="index.html" class="btn-seguir">← Seguir comprando</a>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

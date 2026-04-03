@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — ShopMX</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Shop<span>MX</span></a>
+        <div class="checkout-steps">
+          <span class="step active">1. Envío</span>
+          <span class="step-sep">›</span>
+          <span class="step" id="step2">2. Pago</span>
+          <span class="step-sep">›</span>
+          <span class="step" id="step3">3. Confirmación</span>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">🌙</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-inner checkout-layout">
+    <div class="checkout-form-col">
+
+      <div class="checkout-card" id="seccion-envio">
+        <h3>📦 Datos de envío</h3>
+        <div class="form-grid2">
+          <div class="fg"><label>Nombre</label><input type="text" id="c-nombre" placeholder="Tu nombre"></div>
+          <div class="fg"><label>Apellido</label><input type="text" id="c-apellido" placeholder="Tu apellido"></div>
+          <div class="fg full"><label>Correo electrónico</label><input type="email" id="c-email" placeholder="correo@ejemplo.com"></div>
+          <div class="fg full"><label>Teléfono</label><input type="tel" id="c-tel" placeholder="55 1234 5678"></div>
+          <div class="fg full"><label>Dirección</label><input type="text" id="c-dir" placeholder="Calle, número exterior e interior"></div>
+          <div class="fg"><label>Colonia</label><input type="text" id="c-col" placeholder="Colonia"></div>
+          <div class="fg"><label>Ciudad</label><input type="text" id="c-ciudad" placeholder="Ciudad"></div>
+          <div class="fg"><label>Estado</label>
+            <select id="c-estado">
+              <option value="">Selecciona</option>
+              <option>Ciudad de México</option><option>Jalisco</option><option>Nuevo León</option>
+              <option>Estado de México</option><option>Puebla</option><option>Otro</option>
+            </select>
+          </div>
+          <div class="fg"><label>Código postal</label><input type="text" id="c-cp" placeholder="00000"></div>
+        </div>
+        <div class="envio-opciones">
+          <h4>Método de envío</h4>
+          <label class="envio-opcion">
+            <input type="radio" name="envio" value="estandar" checked>
+            <div class="eo-info"><span>Envío estándar</span><small>5–7 días hábiles</small></div>
+            <span class="eo-precio" id="precio-estandar">Gratis</span>
+          </label>
+          <label class="envio-opcion">
+            <input type="radio" name="envio" value="express">
+            <div class="eo-info"><span>Envío express</span><small>1–2 días hábiles</small></div>
+            <span class="eo-precio">$149</span>
+          </label>
+          <label class="envio-opcion">
+            <input type="radio" name="envio" value="mismo-dia">
+            <div class="eo-info"><span>Mismo día <small style="color:var(--acento)">(Solo CDMX)</small></span><small>Antes de las 2pm</small></div>
+            <span class="eo-precio">$249</span>
+          </label>
+        </div>
+        <button class="btn-continuar" id="btn-a-pago">Continuar al pago →</button>
+      </div>
+
+      <div class="checkout-card" id="seccion-pago" style="display:none">
+        <h3>💳 Método de pago</h3>
+        <div class="metodos-pago">
+          <button class="metodo-btn active" data-metodo="tarjeta">💳 Tarjeta</button>
+          <button class="metodo-btn" data-metodo="paypal">🅿️ PayPal</button>
+          <button class="metodo-btn" data-metodo="efectivo">💵 Efectivo</button>
+        </div>
+
+        <div id="form-tarjeta" class="pago-form">
+          <div class="tarjeta-visual">
+            <div class="tv-chip">▪</div>
+            <div class="tv-numero" id="tv-numero">•••• •••• •••• ••••</div>
+            <div class="tv-bottom">
+              <span id="tv-nombre">NOMBRE APELLIDO</span>
+              <span id="tv-expira">MM/AA</span>
+            </div>
+          </div>
+          <div class="form-grid2">
+            <div class="fg full"><label>Número de tarjeta</label>
+              <input type="text" id="t-numero" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="fg full"><label>Nombre en la tarjeta</label>
+              <input type="text" id="t-nombre" placeholder="NOMBRE APELLIDO">
+            </div>
+            <div class="fg"><label>Fecha de vencimiento</label>
+              <input type="text" id="t-expira" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div class="fg"><label>CVV</label>
+              <input type="text" id="t-cvv" placeholder="•••" maxlength="4">
+            </div>
+          </div>
+          <div class="seguro-aviso">🔒 Pago seguro con cifrado SSL de 256 bits</div>
+        </div>
+
+        <div id="form-paypal" class="pago-form" style="display:none">
+          <div class="paypal-box">
+            <div class="pp-logo">Pay<span>Pal</span></div>
+            <p>Serás redirigido a PayPal para completar tu pago de forma segura.</p>
+            <div class="pp-email-box">
+              <label>Correo de PayPal</label>
+              <input type="email" id="pp-email" placeholder="correo@paypal.com">
+            </div>
+          </div>
+        </div>
+
+        <div id="form-efectivo" class="pago-form" style="display:none">
+          <div class="efectivo-box">
+            <div class="ef-icono">💵</div>
+            <h4>Pago en efectivo</h4>
+            <p>Recibirás un código de referencia. Paga en cualquier tienda de conveniencia: OXXO, 7-Eleven, Farmacias del Ahorro.</p>
+            <div class="ef-referencia">
+              <span>Referencia de pago</span>
+              <strong id="ef-codigo">SHOPМX-000000</strong>
+            </div>
+            <p class="ef-nota">⏱ Tienes 48 horas para realizar el pago. Tu pedido se confirmará automáticamente.</p>
+          </div>
+        </div>
+
+        <button class="btn-continuar" id="btn-pagar">Confirmar y pagar →</button>
+        <button class="btn-volver" id="btn-volver-envio">← Volver a datos de envío</button>
+      </div>
+    </div>
+
+    <div class="checkout-resumen" id="checkout-resumen">
+      <h3>Tu pedido</h3>
+      <div id="checkout-items"></div>
+      <div class="resumen-divider"></div>
+      <div class="resumen-row"><span>Subtotal</span><span id="cr-subtotal"></span></div>
+      <div class="resumen-row"><span>Envío</span><span id="cr-envio">Gratis</span></div>
+      <div class="resumen-divider"></div>
+      <div class="resumen-row total-row"><span>Total</span><strong id="cr-total"></strong></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

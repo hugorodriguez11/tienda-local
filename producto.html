@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto — ShopMX</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Shop<span>MX</span></a>
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar productos...">
+          <button class="search-btn">🔍</button>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">🌙</button>
+          <a href="carrito.html" class="carrito-link">🛒 <span class="badge" id="badge-count">0</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="breadcrumb-bar">
+    <div class="section-inner">
+      <a href="index.html">Inicio</a> <span>/</span>
+      <span id="bc-cat"></span> <span>/</span>
+      <span id="bc-nombre"></span>
+    </div>
+  </div>
+
+  <section class="producto-detalle section-inner">
+    <div class="detalle-grid">
+      <div class="detalle-img-wrap">
+        <img id="detalle-img" src="" alt="">
+        <div class="img-zoom-hint">🔍 Pasa el cursor para ampliar</div>
+      </div>
+      <div class="detalle-info">
+        <span class="detalle-badge" id="detalle-badge"></span>
+        <span class="detalle-cat" id="detalle-cat"></span>
+        <h1 id="detalle-nombre"></h1>
+        <div class="detalle-rating">
+          <span class="stars" id="detalle-stars"></span>
+          <span id="detalle-reviews"></span>
+        </div>
+        <div class="detalle-precios">
+          <span class="precio-actual" id="detalle-precio"></span>
+          <span class="precio-original" id="detalle-original"></span>
+          <span class="descuento-pct" id="detalle-descuento"></span>
+        </div>
+        <p class="detalle-desc" id="detalle-desc"></p>
+        <div class="detalle-specs">
+          <h3>Especificaciones</h3>
+          <ul id="detalle-specs"></ul>
+        </div>
+        <div class="detalle-stock" id="detalle-stock"></div>
+        <div class="detalle-acciones">
+          <div class="qty-selector">
+            <button id="qty-minus">−</button>
+            <span id="qty-val">1</span>
+            <button id="qty-plus">+</button>
+          </div>
+          <button class="btn-agregar-detalle" id="btn-agregar">🛒 Agregar al carrito</button>
+        </div>
+        <button class="btn-comprar-ya" id="btn-comprar">⚡ Comprar ahora</button>
+        <div class="garantias">
+          <div class="garantia-item">✅ Garantía 12 meses</div>
+          <div class="garantia-item">🚚 Envío gratis +$999</div>
+          <div class="garantia-item">↩️ Devolución 30 días</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relacionados-section">
+      <h2 class="section-title">También te puede interesar</h2>
+      <div class="productos-grid" id="relacionados-grid"></div>
+    </div>
+  </section>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

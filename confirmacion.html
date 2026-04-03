@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido confirmado — ShopMX</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Shop<span>MX</span></a>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">🌙</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="confirmacion-wrap section-inner">
+    <div class="confirmacion-card">
+      <div class="check-circle">✓</div>
+      <h1>¡Pedido confirmado!</h1>
+      <p class="conf-sub">Gracias por tu compra. Recibirás un correo con los detalles.</p>
+      <div class="conf-numero">
+        <span>Número de pedido</span>
+        <strong id="conf-numero">#SHOPМX-000000</strong>
+      </div>
+      <div class="conf-detalles" id="conf-detalles"></div>
+      <div class="conf-timeline">
+        <div class="tl-item active"><span class="tl-dot"></span><p>Pedido recibido</p></div>
+        <div class="tl-line"></div>
+        <div class="tl-item"><span class="tl-dot"></span><p>En preparación</p></div>
+        <div class="tl-line"></div>
+        <div class="tl-item"><span class="tl-dot"></span><p>En camino</p></div>
+        <div class="tl-line"></div>
+        <div class="tl-item"><span class="tl-dot"></span><p>Entregado</p></div>
+      </div>
+      <a href="index.html" class="btn-continuar" style="display:inline-block;text-decoration:none;text-align:center;">Seguir comprando →</a>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

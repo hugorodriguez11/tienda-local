@@ -1,154 +1,96 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiTienda — Productos con carácter</title>
+  <title>ShopMX — Tu tienda favorita</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Fraunces:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="loader" id="loader">
-    <div class="loader-inner">
-      <div class="loader-logo">M<span>.</span></div>
-      <div class="loader-bar"><div class="loader-fill"></div></div>
-    </div>
-  </div>
-
-  <header id="header">
-    <div class="header-inner">
-      <div class="logo">Mi<span>Tienda</span></div>
-      <nav class="nav-links">
-        <a href="#productos">Productos</a>
-        <a href="#beneficios">¿Por qué nosotros?</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <div class="header-actions">
-        <div class="search-box">
-          <input type="text" id="buscador" placeholder="Buscar...">
-          <span class="search-icon">⌕</span>
+  <header class="header" id="header">
+    <div class="header-top">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Shop<span>MX</span></a>
+        <div class="search-bar">
+          <input type="text" id="buscador" placeholder="Buscar productos, marcas y más...">
+          <button class="search-btn">🔍</button>
         </div>
-        <button class="carrito-btn" id="carrito-btn">
-          <span class="carrito-icon">🛒</span>
-          <span class="carrito-badge" id="carrito-count">0</span>
-        </button>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle" title="Cambiar tema">🌙</button>
+          <a href="carrito.html" class="carrito-link">
+            🛒 <span class="badge" id="badge-count">0</span>
+          </a>
+        </div>
       </div>
+    </div>
+    <div class="header-cats">
+      <div class="cats-inner" id="cats-nav"></div>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="hero-tag">✦ Envío gratis en pedidos +$500</div>
-        <h1>Productos con<br><em>carácter propio</em></h1>
-        <p>Encuentra piezas únicas para tu hogar, tu estilo y tu día a día. Pedidos fáciles por WhatsApp.</p>
-        <div class="hero-ctas">
-          <a href="#productos" class="btn-cta">Explorar productos</a>
-          <a href="#beneficios" class="btn-cta-ghost">Cómo funciona</a>
-        </div>
+  <section class="hero-banner">
+    <div class="banner-inner">
+      <div class="banner-text">
+        <span class="banner-tag">⚡ Ofertas del día</span>
+        <h1>Hasta 40% de descuento<br>en productos seleccionados</h1>
+        <p>Envío gratis en compras mayores a $999 · Entrega en 24–48h</p>
+        <a href="#productos" class="btn-banner">Ver ofertas</a>
       </div>
-      <div class="hero-visual">
-        <div class="floating-cards">
-          <div class="float-card fc1">☕<span>Hogar</span></div>
-          <div class="float-card fc2">👕<span>Ropa</span></div>
-          <div class="float-card fc3">🎧<span>Tech</span></div>
-          <div class="float-card fc4">📓<span>Papelería</span></div>
-        </div>
-      </div>
+      <div class="banner-visual">🛍</div>
     </div>
-    <div class="hero-marquee">
-      <div class="marquee-track">
-        <span>Envío rápido</span><span>✦</span>
-        <span>Pago por WhatsApp</span><span>✦</span>
-        <span>Productos únicos</span><span>✦</span>
-        <span>Atención personalizada</span><span>✦</span>
-        <span>Envío rápido</span><span>✦</span>
-        <span>Pago por WhatsApp</span><span>✦</span>
-        <span>Productos únicos</span><span>✦</span>
-        <span>Atención personalizada</span><span>✦</span>
-      </div>
+  </section>
+
+  <section class="cats-grid-section">
+    <div class="section-inner">
+      <h2 class="section-title">Comprar por categoría</h2>
+      <div class="cats-grid" id="cats-grid"></div>
     </div>
   </section>
 
   <section class="productos-section" id="productos">
-    <div class="productos-inner">
-      <div class="productos-header">
-        <h2>Nuestros productos</h2>
-        <div class="filtros" id="filtros"></div>
+    <div class="section-inner">
+      <div class="productos-top">
+        <h2 class="section-title" id="titulo-seccion">Todos los productos</h2>
+        <div class="sort-box">
+          <select id="sort-select">
+            <option value="relevancia">Relevancia</option>
+            <option value="precio-asc">Precio: menor a mayor</option>
+            <option value="precio-desc">Precio: mayor a menor</option>
+            <option value="rating">Mejor calificados</option>
+          </select>
+        </div>
       </div>
       <div class="productos-grid" id="productos-grid"></div>
     </div>
   </section>
 
-  <section class="beneficios" id="beneficios">
-    <div class="beneficios-inner">
-      <p class="seccion-eyebrow">✦ ¿Por qué elegirnos?</p>
-      <h2>Comprar nunca fue tan fácil</h2>
-      <div class="beneficios-grid">
-        <div class="beneficio-card">
-          <div class="beneficio-icon">💬</div>
-          <h3>Pedido por WhatsApp</h3>
-          <p>Sin cuentas, sin complicaciones. Arma tu carrito y mándanos el pedido directo por WhatsApp.</p>
-        </div>
-        <div class="beneficio-card">
-          <div class="beneficio-icon">🚚</div>
-          <h3>Envío a todo México</h3>
-          <p>Enviamos a cualquier parte del país. Gratis en pedidos mayores a $500 dentro de CDMX.</p>
-        </div>
-        <div class="beneficio-card">
-          <div class="beneficio-icon">✅</div>
-          <h3>Calidad garantizada</h3>
-          <p>Todos nuestros productos pasan por un control de calidad. Si no quedas satisfecho, te devolvemos tu dinero.</p>
-        </div>
-        <div class="beneficio-card">
-          <div class="beneficio-icon">⚡</div>
-          <h3>Respuesta inmediata</h3>
-          <p>Nuestro equipo responde en menos de 10 minutos durante horario de atención.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contacto" id="contacto">
-    <div class="contacto-inner">
-      <p class="seccion-eyebrow" style="color:rgba(255,255,255,.5)">✦ Encuéntranos</p>
-      <h2>¿Tienes dudas?</h2>
-      <p>Escríbenos por WhatsApp o redes sociales, con gusto te ayudamos.</p>
-      <div class="contacto-links">
-        <a href="https://wa.me/5215512345678" target="_blank" class="contacto-link wa">💬 WhatsApp</a>
-        <a href="#" class="contacto-link">📸 Instagram</a>
-        <a href="#" class="contacto-link">📘 Facebook</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
+  <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-logo">Mi<span>Tienda</span></div>
-      <p>© 2026 MiTienda · CDMX · Hecho con ❤️</p>
+      <div class="footer-col">
+        <div class="footer-logo">Shop<span>MX</span></div>
+        <p>Tu tienda favorita en México. Calidad garantizada en cada compra.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <a href="#">Centro de ayuda</a>
+        <a href="#">Seguimiento de pedido</a>
+        <a href="#">Devoluciones</a>
+      </div>
+      <div class="footer-col">
+        <h4>Métodos de pago</h4>
+        <div class="pagos-row">
+          <span class="pago-chip">💳 Tarjeta</span>
+          <span class="pago-chip">🅿️ PayPal</span>
+          <span class="pago-chip">💵 Efectivo</span>
+        </div>
+      </div>
     </div>
+    <div class="footer-copy">© 2026 ShopMX · Proyecto de portafolio — Hugo Rodríguez</div>
   </footer>
 
-  <div class="carrito-drawer" id="carrito-drawer">
-    <div class="drawer-header">
-      <h3>Tu carrito</h3>
-      <button id="cerrar-carrito" class="cerrar-btn">✕</button>
-    </div>
-    <div class="drawer-items" id="drawer-items"></div>
-    <div class="drawer-footer">
-      <div class="drawer-total">
-        <span>Total</span>
-        <strong id="drawer-total">$0</strong>
-      </div>
-      <button class="btn-whatsapp" id="btn-whatsapp">Pedir por WhatsApp 💬</button>
-      <button class="btn-vaciar" id="btn-vaciar">Vaciar carrito</button>
-    </div>
-  </div>
-  <div class="overlay" id="overlay"></div>
-
-  <div class="toast" id="toast">Producto agregado al carrito ✓</div>
-
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
